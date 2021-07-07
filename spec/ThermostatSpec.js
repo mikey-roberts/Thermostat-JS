@@ -1,34 +1,48 @@
-describe("Thermostat", function() {
-  var thermostat;
+'use strict'
+
+
+describe("Thermostat", () => {
+  let thermostat;
+
   beforeEach(function() {
    thermostat = new Thermostat();   
   });
-  it("should have a default temperature", function() {
-    expect(thermostat.tempDisplay).toEqual(20);
+  it("should have a default temperature", () => {
+    expect(thermostat.temperature).toEqual(20);
   });
-  it("temperature can be increased", function() {
-    expect(thermostat.increaseTemp).toEqual(21);
+  it("temperature can be increased", () => {
+    thermostat.increaseTemp();
+    expect(thermostat.temperature).toEqual(21);
   });
   it("temperature can be decreased", function() {
-    expect(thermostat.decreaseTemp).toEqual(19);
+    thermostat.decreaseTemp
+    expect(thermostat.tempDisplay).toEqual(19);
   });
   it("goes to a maximum of 25 degrees if power saving mode is on", function() {
-    (10).times.thermostat.increaseTemp    
+    for (let i = 0; i < 11; i++) {
+    thermostat.increaseTemp()   
+    }
     expect(thermostat.tempDisplay).toEqual(30);
-    thermostat.isPowerSaveOn
+    thermostat.PowerSaveOn
     expect(thermostat.tempDisplay).toEqual(25);
   });
   it("goes to a maximum of 32 degrees if power saving mode is off", function() {
     expect(thermostat.tempDisplay).toEqual(20);
-    (15).times.thermostat.increaseTemp    
-    thermostat.isPowerSaveOn 
-    expect(thermostat.tempDisplay).toEqual(25);
+    thermostat.PowerSaveOff
+    for (let i = 0; i < 13; i++) {
+      thermostat.increaseTemp()   
+      }    
+    expect(thermostat.tempDisplay).toEqual(32);
   });
   it("minimum temperature cannot go below 10", function() {
-    (10).times.thermostat.decreaseTemp
+    for (let i = 0; i < 13; i++) {
+      thermostat.decreaseTemp()   
+      }    
     expect(thermostat.tempDisplay).toEqual(10);
     (1).times.thermostat.decreaseTemp
     expect(thermostat.tempDisplay).toThrow('Cannot go below 10 degrees')
     expect(thermostat.tempDisplay).toEqual(10);
   })
+
+
 });
