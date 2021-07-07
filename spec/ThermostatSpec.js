@@ -42,8 +42,15 @@ describe("Thermostat", () => {
   })
   it("power saver mode should be on by default", () => {
     expect(thermostat.isPowerSaveOn()).toBe(true);
-  }
-  )
-
-
+  })
+  it('can switch power save off', () => {
+    thermostat.switchPowerSaveOff();
+    expect(thermostat.isPowerSaveOn()).toBe(false);
+  })
+  it('can switch power save back on', () => {
+    thermostat.switchPowerSaveOff();
+    expect(thermostat.isPowerSaveOn()).toBe(false);
+    thermostat.switchPowerSaveOn();
+    expect(thermostat.isPowerSaveOn()).toBe(true);
+  })
 });

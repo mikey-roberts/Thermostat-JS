@@ -26,6 +26,22 @@ class Thermostat {
     return this.powerSave === true;
   }
 
+  isPowerSaveOff() {
+    return this.powerSave === false;
+  }
+
+  isMaximumTemperature() {
+
+  }
+
+  switchPowerSaveOn() {
+    this.powerSave = true
+  }
+
+  switchPowerSaveOff() {
+    this.powerSave = false
+  }
+
   isMinimumTemperature() {
     return this.temperature === this.MINIMUM_TEMPERATURE;
   }
