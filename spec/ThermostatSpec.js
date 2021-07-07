@@ -18,14 +18,6 @@ describe("Thermostat", () => {
     thermostat.decreaseTemp();
     expect(thermostat.tempDisplay()).toEqual(19);
   });
-  it("goes to a maximum of 32 degrees if power saving mode is off", () => {
-    expect(thermostat.tempDisplay()).toEqual(20);
-    thermostat.isPowerSaveOff();
-    for (let i = 0; i < 13; i++) {
-      thermostat.increaseTemp(); 
-      }    
-    expect(thermostat.tempDisplay).toEqual(32);
-  });
   it("minimum temperature cannot go below 10", () => {
     for (let i = 0; i < 11; i++) {
       thermostat.decreaseTemp();  
@@ -51,6 +43,15 @@ describe("Thermostat", () => {
         thermostat.increaseTemp();
       }
       expect(thermostat.tempDisplay()).toEqual(25);
+    });
+  });
+  describe('when power saving mode is off', () => {
+    it('has a maximum temperature of 32 degrees', () => {
+      thermostat.switchPowerSaveOff();
+      for (let i = 0; i < 13; i++) {
+        thermostat.increaseTemp();
+      }
+      expect(thermostat.tempDisplay()).toEqual(32);
     });
   });
 });
