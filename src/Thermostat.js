@@ -12,4 +12,8 @@ class Thermostat {
   increaseTemp() {
   this.temperature += 1  
   }
+
+  decreaseTemp() {
+  this.temperature -= 1
+  }
 };
