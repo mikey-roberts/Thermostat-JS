@@ -54,4 +54,11 @@ describe("Thermostat", () => {
       expect(thermostat.tempDisplay()).toEqual(32);
     });
   });
+  it('can be reset to the default temperature', () => {
+    for (let i = 0; i < 6; i++) {
+      thermostat.increaseTemp();
+    }
+    thermostat.resetTemp();
+    expect(thermostat.tempDisplay()).toEqual(20);
+  });
 });
