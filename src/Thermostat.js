@@ -15,7 +15,10 @@ class Thermostat {
   }
 
   decreaseTemp() {
-  this.temperature -= 1
+    if (this.isMinimumTemperature()) {
+      return;
+    }
+    this.temperature -= 1
   }
 
   isPowerSaveOn() {
