@@ -23,12 +23,12 @@ describe("Thermostat", () => {
     thermostat.increaseTemp();   
     }
     expect(thermostat.tempDisplay()).toEqual(30);
-    thermostat.PowerSaveOn();
+    thermostat.isPowerSaveOn();
     expect(thermostat.tempDisplay()).toEqual(25);
   });
   it("goes to a maximum of 32 degrees if power saving mode is off", () => {
     expect(thermostat.tempDisplay()).toEqual(20);
-    thermostat.PowerSaveOff();
+    thermostat.isPowerSaveOff();
     for (let i = 0; i < 13; i++) {
       thermostat.increaseTemp(); 
       }    
@@ -38,11 +38,12 @@ describe("Thermostat", () => {
     for (let i = 0; i < 11; i++) {
       thermostat.decreaseTemp();  
       }    
-    expect(thermostat.tempDisplay).toEqual(10);
-    thermostat.decreaseTemp();
-    expect(thermostat.tempDisplay).toThrow('Cannot go below 10 degrees')
-    expect(thermostat.tempDisplay).toEqual(10);
+    expect(thermostat.tempDisplay()).toEqual(10);
   })
+  it("power saver mode should be on by default", () => {
+    expect(thermostat.isPowerSaveOn()).toBe(true);
+  }
+  )
 
 
 });
