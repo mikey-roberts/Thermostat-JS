@@ -1,27 +1,32 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="/Users/mikey-roberts/Documents/Repos/thermostat-js/thermostat/views/style.css"/>
+
+  <link rel="stylesheet" href="/Users/mikey-roberts/Documents/Repos/thermostat-js/thermostat/views/style.css"/>
     <title>Thermostat</title>
   </head>
   <body>
+    <div>
     <section>
+      <h1 class="thermo">Thermostat<br>_________</h1>
+      <h1 id="hero">Your selected City - Current temperature: <span id="current-temperature">20</span></h1>
       <h1>Current temperature: <span id="current-temperature">20</span></h1>
-      <h1>Current temperature: <span id="current-temperature">20</span></h1>
-<!--       <option value="London">London</option>
+<!-- 
+
+      <option value="London">London</option>
       <option value="New york">New York</option>
       <option value="Paris">Paris</option>
       <option value="Tokyo">Tokyo</option>
  -->     
-
       <form id="select-city">
         <input id="current-city" type="text" placeholder="Enter a city"></input>
-        <input type="submit"></input>
+        
+        <input class="smbt" type="submit"></input>
       </form>
 
 
     </select>
-      <h1 id="temperature"></h1>
+    Current temperature:<span><h1 id="temperature"></h1></span>
       <p>
         <button id="temperature-up">+</button>
         <button id="temperature-down">-</button>
@@ -31,6 +36,7 @@
         <button id="powersave-off">PSM off</button>
       </p>
     </section>
+  </div>
     <script src="/Users/mikey-roberts/Documents/Repos/thermostat-js/thermostat/src/Thermostat.js"></script>
     <script src="/Users/mikey-roberts/Documents/Repos/thermostat-js/thermostat/src/interface.js"></script>
   </body>
